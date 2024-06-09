@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hedg/core/utils/extintions.dart';
 import 'package:hedg/core/widgets/custom_appBar.dart';
+import 'package:hedg/screens/onboarding_screen/Ui/widget/onboarding_button.dart';
 
 import '../../../core/routing/routs_names.dart';
 import '../../../core/utils/colors.dart';
@@ -46,7 +47,7 @@ class OnboardingScreen extends StatelessWidget {
                   child: SizedBox(
                     height: context.screenHeight / 1.8,
                     child: PageView.builder(
-                      //physics: const NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       controller:
                           context.read<OnboardingCubit>().pageController,
                       onPageChanged: (index) {
@@ -144,31 +145,7 @@ class OnboardingScreen extends StatelessWidget {
                                       style: TextStyles.font16PrimaryMedium),
                                 )
                               : Container(),
-                          TextButton(
-                            style: TextButton.styleFrom(
-                              shape: const CircleBorder(),
-                              backgroundColor: AppColors.primary,
-                              foregroundColor: AppColors.primary,
-                              minimumSize: const Size(75, 75),
-                              fixedSize: const Size(75, 75),
-                            ),
-                            onPressed: () {
-                              context.read<OnboardingCubit>().pageIndex == 2
-                                  ? context
-                                      .navigateToAndReplacement(RouteName.LOGIN)
-                                  : context
-                                      .read<OnboardingCubit>()
-                                      .pageController
-                                      .nextPage(
-                                          duration:
-                                              const Duration(milliseconds: 300),
-                                          curve: Curves.linear);
-                            },
-                            child: Icon(
-                              Icons.arrow_forward_ios_outlined,
-                              color: AppColors.whiteColor,
-                            ),
-                          )
+                          const OnboardingButton(),
                         ],
                       ),
                     ),
