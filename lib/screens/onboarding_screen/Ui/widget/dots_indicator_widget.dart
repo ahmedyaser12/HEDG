@@ -24,7 +24,7 @@ class DotsIndicatorWidget extends StatelessWidget {
         activeShape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(5.0),
         ),
-        color: AppColors.greyColor,
+        color: AppColors.secondary.withOpacity(0.3),
         activeColor: AppColors.secondary,
       ),
     );
