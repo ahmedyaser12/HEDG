@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hedg/core/utils/app_string.dart';
 import 'package:hedg/core/utils/extintions.dart';
 import 'package:hedg/core/widgets/custom_appBar.dart';
 import 'package:hedg/screens/onboarding_screen/Ui/widget/onboarding_button.dart';
@@ -141,7 +142,7 @@ class OnboardingScreen extends StatelessWidget {
                                                 milliseconds: 300),
                                             curve: Curves.linear);
                                   },
-                                  child: Text('Back',
+                                  child: Text(AppStrings.back,
                                       style: TextStyles.font16PrimaryMedium),
                                 )
                               : Container(),
