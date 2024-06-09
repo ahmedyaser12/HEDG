@@ -6,6 +6,7 @@ class TextStyles {
   static TextStyle font20BlackBold(BuildContext context) {
     return TextStyle(
       fontSize: 20,
+      fontFamily: 'Poppins',
       fontWeight: FontWeight.bold,
       color: Theme.of(context).brightness == Brightness.light
           ? AppColors.blackColor
@@ -13,12 +14,12 @@ class TextStyles {
     );
   }
 
-  static TextStyle font16grey(BuildContext context) {
+  static TextStyle font14greyW500(BuildContext context) {
     return TextStyle(
-      fontSize: 16,
-      color: Theme.of(context).brightness == Brightness.light
-          ? AppColors.greyColor
-          : AppColors.darkGreyColor,
+      fontFamily: 'Poppins',
+      fontSize: 14,
+      fontWeight: FontWeight.w500,
+      color: AppColors.greyColor,
     );
   }
 
@@ -65,16 +66,6 @@ class TextStyles {
     fontWeight: FontWeight.w800,
     color: AppColors.primary,
   );
-
-  static TextStyle font18BlackBold(BuildContext context) {
-    return TextStyle(
-      fontSize: 18,
-      fontWeight: FontWeight.bold,
-      color: Theme.of(context).brightness == Brightness.light
-          ? AppColors.blackColor
-          : AppColors.whiteColor,
-    );
-  }
 
   static TextStyle font14RedBold = TextStyle(
     fontSize: 14,

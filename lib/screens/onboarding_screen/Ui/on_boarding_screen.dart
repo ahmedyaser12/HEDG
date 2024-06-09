@@ -17,86 +17,116 @@ class OnboardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        appBar: customAppBarr(
-          action: [
-            TextButton(
-                onPressed: () {
-                  context.navigateToAndReplacement(RouteName.LOGIN);
-                },
-                child: Text('Skip',
-                    style: TextStyles.font18BlackBold(context)
-                        .copyWith(color: AppColors.secondary)))
-          ],
-          context: context,
-        ),
-        body: Padding(
-          padding: const EdgeInsets.only(right: 28.0, left: 28.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(bottom: 15.h),
-                child: SizedBox(
-                  height: context.screenHeight / 2.1,
-                  child: PageView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    controller: context.read<OnboardingCubit>().pageController,
-                    onPageChanged: (index) {
-                      context.read<OnboardingCubit>().currentIndex(index);
-                    },
-                    itemCount:
-                        context.read<OnboardingCubit>().onboardingData.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return SingleChildScrollView(
-                        child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                context
-                                    .read<OnboardingCubit>()
-                                    .onboardingData[index]
-                                    .image
-                                    .toString(),
-                                fit: BoxFit.fill,
-                                height: 219.h,
-                              ),
-                              heightSpace(70),
-                              Text(
-                                context
-                                    .read<OnboardingCubit>()
-                                    .onboardingData[index]
-                                    .title
-                                    .toString(),
-                                style: TextStyles.font18BlackBold(context).copyWith(fontSize: 20,color: AppColors.secondary),
-                                textAlign: TextAlign.center,
-                              ),
-                              heightSpace(12),
-                              Text(
-                                context
-                                    .read<OnboardingCubit>()
-                                    .onboardingData[index]
-                                    .subTitle
-                                    .toString(),
-                                style: TextStyles.font16grey(context),
-                                textAlign: TextAlign.center,
-                              ),
-                            ]),
-                      );
-                    },
+      child: BlocBuilder<OnboardingCubit, OnboardingState>(
+        builder: (context, state) {
+          return Scaffold(
+            appBar: customAppBarr(
+              action: [
+                context.read<OnboardingCubit>().pageIndex != 2
+                    ? TextButton(
+                        onPressed: () {
+                          context.navigateToAndReplacement(RouteName.LOGIN);
+                        },
+                        child: Text(
+                          'Skip',
+                          style: TextStyles.font20BlackBold(context)
+                              .copyWith(color: AppColors.secondary),
+                        ),
+                      )
+                    : Container(),
+              ],
+              context: context,
+            ),
+            body: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(bottom: 15.h),
+                  child: SizedBox(
+                    height: context.screenHeight / 1.8,
+                    child: PageView.builder(
+                      //physics: const NeverScrollableScrollPhysics(),
+                      controller:
+                          context.read<OnboardingCubit>().pageController,
+                      onPageChanged: (index) {
+                        context.read<OnboardingCubit>().currentIndex(index);
+                      },
+                      itemCount:
+                          context.read<OnboardingCubit>().onboardingData.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return SingleChildScrollView(
+                          child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: context
+                                              .read<OnboardingCubit>()
+                                              .pageIndex ==
+                                          0
+                                      ? MainAxisAlignment.end
+                                      : MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Image.asset(
+                                      context
+                                          .read<OnboardingCubit>()
+                                          .onboardingData[index]
+                                          .image
+                                          .toString(),
+                                      fit: context
+                                                  .read<OnboardingCubit>()
+                                                  .pageIndex ==
+                                              1
+                                          ? BoxFit.fill
+                                          : null,
+                                      width: context
+                                                  .read<OnboardingCubit>()
+                                                  .pageIndex ==
+                                              1
+                                          ? 375.w
+                                          : null,
+                                      height: 320.h,
+                                    ),
+                                  ],
+                                ),
+                                heightSpace(70),
+                                Text(
+                                  context
+                                      .read<OnboardingCubit>()
+                                      .onboardingData[index]
+                                      .title
+                                      .toString(),
+                                  style: TextStyles.font20BlackBold(context)
+                                      .copyWith(color: AppColors.secondary),
+                                  textAlign: TextAlign.center,
+                                ),
+                                heightSpace(12),
+                                Text(
+                                  context
+                                      .read<OnboardingCubit>()
+                                      .onboardingData[index]
+                                      .subTitle
+                                      .toString(),
+                                  style: TextStyles.font14greyW500(context),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ]),
+                        );
+                      },
+                    ),
                   ),
                 ),
-              ),
-              BlocBuilder<OnboardingCubit, OnboardingState>(
-                builder: (context, onboardingState) {
-                  return Column(
-                    children: [
-                      DotsIndicatorWidget(
-                        currentIndex: context.read<OnboardingCubit>().pageIndex,
-                      ),
-                      heightSpace(70.h),
-                      Row(
+                Column(
+                  children: [
+                    DotsIndicatorWidget(
+                      currentIndex: context.read<OnboardingCubit>().pageIndex,
+                    ),
+                    heightSpace(70.h),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           context.read<OnboardingCubit>().pageIndex != 0
@@ -141,13 +171,13 @@ class OnboardingScreen extends StatelessWidget {
                           )
                         ],
                       ),
-                    ],
-                  );
-                },
-              ),
-            ],
-          ),
-        ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          );
+        },
       ),
     );
   }

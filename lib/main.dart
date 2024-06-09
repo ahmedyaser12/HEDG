@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hedg/core/utils/themes.dart';
 
 import 'core/routing/app_router.dart';
 import 'core/routing/routs_names.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         useInheritedMediaQuery: true,
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(),
+        theme: MyAppThemes.lightTheme,
         initialRoute: RouteName.ONBOARDING,
         onGenerateRoute: AppRouter.generateRoute,
       ),
