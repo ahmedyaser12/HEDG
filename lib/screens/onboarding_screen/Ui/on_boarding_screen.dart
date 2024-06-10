@@ -46,9 +46,9 @@ class OnboardingScreen extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(bottom: 15.h),
                   child: SizedBox(
-                    height: context.screenHeight / 1.8,
+                    height: context.screenHeight / 1.6,
                     child: PageView.builder(
-                      physics: const NeverScrollableScrollPhysics(),
+                     // physics: const NeverScrollableScrollPhysics(),
                       controller:
                           context.read<OnboardingCubit>().pageController,
                       onPageChanged: (index) {
@@ -111,7 +111,7 @@ class OnboardingScreen extends StatelessWidget {
                                       .onboardingData[index]
                                       .subTitle
                                       .toString(),
-                                  style: TextStyles.font14greyW500(context),
+                                  style: TextStyles.font14greyW500,
                                   textAlign: TextAlign.center,
                                 ),
                               ]),
