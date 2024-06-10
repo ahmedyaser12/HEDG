@@ -17,9 +17,10 @@ Widget primaryButton(
       child: Text(
         title,
         style: TextStyle(
-            color: AppColors.whiteColor,
-            fontSize: 16,
-            fontWeight: FontWeight.bold),
+          color: AppColors.whiteColor,
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     ),
   );
