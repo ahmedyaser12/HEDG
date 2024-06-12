@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hedg/core/utils/extintions.dart';
 import 'package:hedg/screens/login-screen/ui/widget/social_button.dart';
 
+import '../../../../core/routing/routs_names.dart';
 import '../../../../core/utils/app_string.dart';
 import '../../../../core/utils/colors.dart';
 import '../../../../core/utils/common_functions.dart';
@@ -22,7 +24,9 @@ class CardLoginContent extends StatelessWidget {
       Text(
         AppStrings.loginForgotPassword,
         style: TextStyles.font12Primary500weight,
-      ),
+      ).onTap(() {
+        context.navigateTo(RouteName.FORGOT_PASSWORD);
+      }),
       heightSpace(20),
       primaryButton(
         title: AppStrings.loginButton,

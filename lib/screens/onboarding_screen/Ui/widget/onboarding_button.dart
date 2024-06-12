@@ -4,7 +4,6 @@ import 'package:hedg/core/utils/colors.dart';
 import 'package:hedg/core/utils/extintions.dart';
 
 import '../../../../core/routing/routs_names.dart';
-import '../../../../core/utils/styles.dart';
 import '../../logic/onboarding_cubit.dart';
 
 class OnboardingButton extends StatelessWidget {
@@ -24,15 +23,10 @@ class OnboardingButton extends StatelessWidget {
       ),
       onPressed: () {
         context.read<OnboardingCubit>().pageIndex == 2
-            ? context
-            .navigateToAndReplacement(RouteName.LOGIN)
-            : context
-            .read<OnboardingCubit>()
-            .pageController
-            .nextPage(
-            duration:
-            const Duration(milliseconds: 300),
-            curve: Curves.linear);
+            ? context.navigateToAndReplacement(RouteName.LOGIN)
+            : context.read<OnboardingCubit>().pageController.nextPage(
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.linear);
       },
       child: Icon(
         Icons.arrow_forward_ios_outlined,
