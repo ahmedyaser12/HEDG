@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hedg/core/routing/routs_names.dart';
+import 'package:hedg/screens/create_new_password_screen/Ui/create_new_password.dart';
 import 'package:hedg/screens/login-screen/ui/login_screen.dart';
 
 import '../../screens/forget_password_screen/Ui/forget_screen.dart';
@@ -25,6 +26,10 @@ class AppRouter {
       case RouteName.FORGOT_PASSWORD:
         return MaterialPageRoute(
           builder: ((context) => const ForgotPasswordScreen()),
+        );
+      case RouteName.CREATENEWPASSWORD:
+        return MaterialPageRoute(
+          builder: ((context) => const CreateNewPassword()),
         );
 
       default:

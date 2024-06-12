@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hedg/core/utils/extintions.dart';
 
 import '../utils/colors.dart';
 import '../utils/common_functions.dart';
 import '../utils/styles.dart';
 
-class FormTextFieldItem extends StatelessWidget {
+class FormTextFieldItem extends StatefulWidget {
   final TextEditingController? controller;
   final String? initialValue;
   final String? title;
@@ -13,9 +14,7 @@ class FormTextFieldItem extends StatelessWidget {
   final String? hint;
   final TextInputType? keyboardType;
   final bool? enabled;
-  final bool? isSecure;
   final bool? isPassword;
-  final bool optional = false;
   final int? lines;
   final Widget? suffixIcon;
   final Function(String)? validator;
@@ -30,11 +29,18 @@ class FormTextFieldItem extends StatelessWidget {
     this.enabled,
     this.lines,
     this.suffixIcon,
-    this.isSecure = false,
     this.keyboardType = TextInputType.text,
     this.isPassword = false,
     this.validator,
   });
+
+  @override
+  State<FormTextFieldItem> createState() => _FormTextFieldItemState();
+}
+
+class _FormTextFieldItemState extends State<FormTextFieldItem> {
+  final bool optional = false;
+  bool isSecure = true;
 
   @override
   Widget build(BuildContext context) {
@@ -43,12 +49,14 @@ class FormTextFieldItem extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.only(left: 5.0),
-          child: Text(
-            name ?? '',
-            style: TextStyles.font15BlackMedium(context),
-          ),
+          child: widget.name == null
+              ? Container()
+              : Text(
+                  widget.name ?? '',
+                  style: TextStyles.font15BlackMedium(context),
+                ),
         ),
-        if (title != null) heightSpace(8),
+        if (widget.title != null) heightSpace(8),
         Container(
           // padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
           decoration: BoxDecoration(
@@ -61,15 +69,14 @@ class FormTextFieldItem extends StatelessWidget {
           child: Center(
             child: TextFormField(
               validator: (value) {
-                return validator!(value!);
+                return widget.validator!(value!);
               },
-              initialValue: initialValue,
-              controller: controller,
-              keyboardType: keyboardType,
+              initialValue: widget.initialValue,
+              controller: widget.controller,
+              keyboardType: widget.keyboardType,
               style: Theme.of(context).brightness == Brightness.dark
                   ? TextStyle(color: AppColors.whiteColor)
                   : TextStyle(color: AppColors.blackColor),
-
               //style: TextStyles.font14PrimarySemi,
               decoration: InputDecoration(
                 focusedBorder: OutlineInputBorder(
@@ -101,17 +108,34 @@ class FormTextFieldItem extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 //border: InputBorder.none,
-                hintText: hint ?? title ?? "hint",
+                hintText: widget.hint ?? widget.title ?? "hint",
                 hintStyle: TextStyles.font14greyW500,
-                suffixIcon: suffixIcon,
+                suffixIcon: widget.suffixIcon ??
+                    (widget.isPassword == true
+                        ? isSecure != true
+                            ? Icon(Icons.visibility_outlined,
+                                    color: AppColors.greyColor)
+                                .onTap(() {
+                                setState(() {
+                                  isSecure = !isSecure;
+                                });
+                              })
+                            : Icon(Icons.visibility_off_outlined,
+                                    color: AppColors.greyColor)
+                                .onTap(() {
+                                setState(() {
+                                  isSecure = !isSecure;
+                                });
+                              })
+                        : null),
                 counterText: '',
                 //contentPadding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),
                 isDense: true,
               ),
-              maxLength: lines,
+              maxLength: widget.lines,
               maxLengthEnforcement: MaxLengthEnforcement.enforced,
-              enabled: enabled,
-              obscureText: isPassword == true ? isSecure! : false,
+              enabled: widget.enabled,
+              obscureText: widget.isPassword == true ? isSecure : true,
             ),
           ),
         ),

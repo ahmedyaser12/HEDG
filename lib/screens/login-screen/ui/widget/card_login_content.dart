@@ -19,7 +19,8 @@ class CardLoginContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(children: [
       const FormTextFieldItem(hint: AppStrings.loginEmailHint),
-      const FormTextFieldItem(hint: AppStrings.loginPasswordHint),
+      heightSpace(20),
+      const FormTextFieldItem(hint: AppStrings.loginPasswordHint,isPassword: true,),
       heightSpace(20),
       Text(
         AppStrings.loginForgotPassword,

@@ -6,10 +6,11 @@ import 'package:hedg/core/utils/extintions.dart';
 import 'package:hedg/core/utils/styles.dart';
 import 'package:hedg/core/widgets/build_card.dart';
 import 'package:hedg/core/widgets/custom_appBar.dart';
+import 'package:hedg/screens/create_new_password_screen/Ui/widget/new_password_card_content.dart';
 import 'package:hedg/screens/forget_password_screen/Ui/widget/forget_card_content.dart';
 
-class ForgotPasswordScreen extends StatelessWidget {
-  const ForgotPasswordScreen({super.key});
+class CreateNewPassword extends StatelessWidget {
+  const CreateNewPassword({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,25 +32,21 @@ class ForgotPasswordScreen extends StatelessWidget {
             ),
             heightSpace(20),
             Text(
-              AppStrings.forgetPasswordTitle,
+              AppStrings.createNewPasswordTitle,
               style: TextStyles.font20BlackBold(context).copyWith(
                 color: AppColors.secondary,
               ),
             ),
             heightSpace(10),
             Text(
-              AppStrings.forgetPasswordSubTitle,
+              AppStrings.createNewPasswordSubTitle,
               textAlign: TextAlign.center,
               style: TextStyles.font14greyW500,
             ),
             const BuildCard(
               marginVertical: 25,
-              paddingVertical: 40,
-              body: ForgetCardContent(),
-            ),
-            Text(
-              AppStrings.forgetPasswordResendTimer,
-              style: TextStyles.font14SecondaryW700,
+              paddingVertical: 20,
+              body: NewPasswordCardContent(),
             ),
           ],
         ),
