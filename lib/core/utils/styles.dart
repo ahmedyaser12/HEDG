@@ -20,6 +20,12 @@ class TextStyles {
     fontWeight: FontWeight.w500,
     color: AppColors.greyColor,
   );
+  static TextStyle font14SecondaryW700 = TextStyle(
+    fontFamily: 'Poppins',
+    fontSize: 14,
+    fontWeight: FontWeight.w700,
+    color: AppColors.secondary,
+  );
   static TextStyle font12Primary500weight = TextStyle(
     fontSize: 12,
     fontFamily: 'Poppins',

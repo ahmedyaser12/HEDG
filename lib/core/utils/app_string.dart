@@ -21,4 +21,30 @@ class AppStrings {
   static const String loginDontHaveAccount = 'Don\'t have an account?';
   static const String loginSignUp = 'Sign Up';
   static const String loginButton = 'Log in';
+
+  //signup strings
+  static const String signupTitle = 'Create Your Account';
+  static const String signupSubTitle = 'Enter your details to continue';
+  static const String signupNameHint = 'Name';
+  static const String signupEmailHint = 'Email';
+  static const String signupPasswordHint = 'Password';
+  static const String signupButton = 'Sign Up';
+  static const String signupAlreadyHaveAccount = 'Already have an account?';
+  static const String signupLogin = 'Log In';
+
+  //forget password strings
+  static const String forgetPasswordTitle = 'Forgot Password?';
+  static const String forgetPasswordSubTitle =
+      'Enter your phone number to reset your\npassword';
+  static const String forgetPasswordHint = 'Phone Number';
+  static const String forgetPasswordSend = 'Send';
+  static const String forgetPasswordResendTimer = 'Re-Send Code In 0:30';
+
+  //create new password strings
+  static const String createNewPasswordTitle = 'Create New Password';
+  static const String createNewPasswordSubTitle =
+      'your new password must be different \nfrom previously used passwords';
+  static const String newPasswordHint = 'New Password';
+  static const String rePasswordHint = 'Re-Password';
+  static const String confirmButton = 'Confirm';
 }
