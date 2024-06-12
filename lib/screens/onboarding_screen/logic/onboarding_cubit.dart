@@ -1,5 +1,6 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hedg/core/utils/app_string.dart';
 
 import '../data/model/onboarding_model.dart';
 
@@ -13,28 +14,24 @@ class OnboardingCubit extends Cubit<OnboardingState> {
   List<OnboardingModel> onboardingData = [
     OnboardingModel(
       'assets/images/onboarding1.png',
-      'assets/images/background1.png',
-      'Shape Your Financial Future ',
-      ' invest your money By Starting With\nHEDG, and secure financial freedom',
+      AppStrings.onboardingTitle1,
+      AppStrings.onboardingSubTitle1,
     ),
     OnboardingModel(
       'assets/images/onboarding2.png',
-      'assets/images/background2.png',
-      'Track Your Investments',
-      'see your return on investments in the\nselected plans',
+      AppStrings.onboardingTitle2,
+      AppStrings.onboardingSubTitle2,
     ),
     OnboardingModel(
       'assets/images/onboarding3.png',
-      'assets/images/background3.png',
-      'Calculate Before Investing',
-      'calculate your potential growth to\nchoose the perfect option for you',
+      AppStrings.onboardingTitle2,
+      AppStrings.onboardingSubTitle2,
     )
   ];
 
   void currentIndex(int index) {
     emit(OnboardingInitial());
     pageIndex = index;
-    print(pageIndex);
     emit(OnboardingNext());
   }
 }

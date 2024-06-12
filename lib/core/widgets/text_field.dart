@@ -44,7 +44,7 @@ class FormTextFieldItem extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(left: 5.0),
           child: Text(
-            name!,
+            name ?? '',
             style: TextStyles.font15BlackMedium(context),
           ),
         ),
@@ -53,7 +53,9 @@ class FormTextFieldItem extends StatelessWidget {
           // padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
-            color:Theme.of(context).brightness==Brightness.dark?AppColors.darkBlue: AppColors.lightGery,
+            color: Theme.of(context).brightness == Brightness.dark
+                ? AppColors.darkBlue
+                : AppColors.whiteColor,
           ),
           width: double.infinity,
           child: Center(
@@ -64,11 +66,13 @@ class FormTextFieldItem extends StatelessWidget {
               initialValue: initialValue,
               controller: controller,
               keyboardType: keyboardType,
-             style: Theme.of(context).brightness==Brightness.dark?TextStyle(color:AppColors.whiteColor):TextStyle(color:AppColors.blackColor),
-         
+              style: Theme.of(context).brightness == Brightness.dark
+                  ? TextStyle(color: AppColors.whiteColor)
+                  : TextStyle(color: AppColors.blackColor),
+
               //style: TextStyles.font14PrimarySemi,
               decoration: InputDecoration(
-                   focusedBorder: OutlineInputBorder(
+                focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
                     color: AppColors.primary,
                     width: 1,
@@ -98,6 +102,7 @@ class FormTextFieldItem extends StatelessWidget {
                 ),
                 //border: InputBorder.none,
                 hintText: hint ?? title ?? "hint",
+                hintStyle: TextStyles.font14greyW500,
                 suffixIcon: suffixIcon,
                 counterText: '',
                 //contentPadding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),
