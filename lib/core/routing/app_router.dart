@@ -4,6 +4,7 @@ import 'package:hedg/core/routing/routs_names.dart';
 import 'package:hedg/screens/create_new_password_screen/Ui/create_new_password.dart';
 import 'package:hedg/screens/login-screen/ui/login_screen.dart';
 
+import '../../screens/face_id_login_screen/Ui/face_id_screen.dart';
 import '../../screens/forget_password_screen/Ui/forget_screen.dart';
 import '../../screens/onboarding_screen/Ui/on_boarding_screen.dart';
 import '../../screens/onboarding_screen/logic/onboarding_cubit.dart';
@@ -30,6 +31,11 @@ class AppRouter {
       case RouteName.CREATENEWPASSWORD:
         return MaterialPageRoute(
           builder: ((context) => const CreateNewPassword()),
+        );
+
+      case RouteName.FACEID:
+        return MaterialPageRoute(
+          builder: ((context) => const FaceIdScreen()),
         );
 
       default:

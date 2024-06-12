@@ -25,7 +25,7 @@ class PhoneNumberTextField extends StatelessWidget {
           Row(
             children: <Widget>[
               Image.asset(
-                'assets/images/account - 2-image.png',
+                'assets/images/egypt_flag.png',
                 // Make sure you have this asset in your project
                 width: 24,
                 height: 24,

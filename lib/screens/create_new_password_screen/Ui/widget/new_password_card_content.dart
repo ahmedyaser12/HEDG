@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hedg/core/utils/extintions.dart';
 
+import '../../../../core/routing/routs_names.dart';
 import '../../../../core/utils/app_string.dart';
 import '../../../../core/utils/common_functions.dart';
 import '../../../../core/widgets/app_buttons.dart';
@@ -28,7 +30,9 @@ class NewPasswordCardContent extends StatelessWidget {
           title: AppStrings.confirmButton,
           borderRadius: 12,
           verticalHeight: 13,
-        ),
+        ).onTap((){
+          context.navigateTo(RouteName.FACEID);
+        }),
       ],
     );
   }
