@@ -23,13 +23,13 @@ class AppStrings {
   static const String loginButton = 'Log in';
 
   //signup strings
-  static const String signupTitle = 'Create Your Account';
-  static const String signupSubTitle = 'Enter your details to continue';
-  static const String signupNameHint = 'Name';
+  static const String signupTitle = 'Create An Account';
+  static const String signupFullNameHint = 'Full Name';
   static const String signupEmailHint = 'Email';
   static const String signupPasswordHint = 'Password';
+  static const String phoneNumberHint = 'Phone Number';
   static const String signupButton = 'Sign Up';
-  static const String signupAlreadyHaveAccount = 'Already have an account?';
+  static const String signupHaveAnAccount = 'Have an account?';
   static const String signupLogin = 'Log In';
 
   //forget password strings
