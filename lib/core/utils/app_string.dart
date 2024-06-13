@@ -47,4 +47,11 @@ class AppStrings {
   static const String newPasswordHint = 'New Password';
   static const String rePasswordHint = 'Re-Password';
   static const String confirmButton = 'Confirm';
+
+
+  // Verification strings
+  static const String verificationTitle = 'Verification';
+  static const String verificationDescription = 'Enter the 4 digit numbers that were sent to\n01202349738';
+  static const String verificationContinueButton = 'Continue';
+  static const String verificationResendCode = 'Re-Send Code';
 }

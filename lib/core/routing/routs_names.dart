@@ -5,5 +5,7 @@ class RouteName {
   static const String FORGOT_PASSWORD = '/forgot_password';
   static const String CREATENEWPASSWORD = '/create_new_password';
   static const String FACEID = '/face_id';
+  static const String VERIFYCODE = '/verify_code';
+  static const String HOME = '/home';
 
 }

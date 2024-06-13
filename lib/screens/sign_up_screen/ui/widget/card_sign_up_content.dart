@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hedg/core/utils/extintions.dart';
 import 'package:hedg/core/widgets/social_button.dart';
 
+import '../../../../core/routing/routs_names.dart';
 import '../../../../core/utils/app_string.dart';
 import '../../../../core/utils/colors.dart';
 import '../../../../core/utils/common_functions.dart';
@@ -32,7 +34,9 @@ class CardSignUpContent extends StatelessWidget {
         title: AppStrings.signupButton,
         borderRadius: 12,
         verticalHeight: 15,
-      ),
+      ).onTap(() {
+        context.navigateTo(RouteName.VERIFYCODE);
+      }),
       heightSpace(20),
       Text(
         AppStrings.loginOr,

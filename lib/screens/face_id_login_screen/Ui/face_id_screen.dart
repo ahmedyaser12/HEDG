@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hedg/core/utils/styles.dart';
-import 'package:hedg/screens/face_id_login_screen/Ui/widget/verify_widget.dart';
+import 'package:hedg/core/widgets/verify_widget.dart';
 
 import '../../../core/utils/colors.dart';
 import '../../../core/utils/common_functions.dart';
@@ -31,7 +31,7 @@ class FaceIdScreen extends StatelessWidget {
             heightSpace(70),
             Image.asset('assets/images/faceID-vid.png',width: 150,),
             heightSpace(25),
-            const VerifyTextField(),
+            const VerifyTextField(isBorder: true,),
           ],
         ),
       ),
