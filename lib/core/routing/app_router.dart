@@ -4,6 +4,7 @@ import 'package:hedg/core/routing/routs_names.dart';
 import 'package:hedg/screens/create_new_password_screen/Ui/create_new_password.dart';
 import 'package:hedg/screens/login-screen/ui/login_screen.dart';
 import 'package:hedg/screens/sign_up_screen/ui/sign_up_screen.dart';
+import 'package:hedg/screens/verify_code_screen/Ui/verify_code_screen.dart';
 
 import '../../screens/face_id_login_screen/Ui/face_id_screen.dart';
 import '../../screens/forget_password_screen/Ui/forget_screen.dart';
@@ -20,6 +21,9 @@ class AppRouter {
       case RouteName.SIGNUP: //home screen
         return MaterialPageRoute(
           builder: ((context) => const SignUpScreen()),
+        );case RouteName.VERIFYCODE: //home screen
+        return MaterialPageRoute(
+          builder: ((context) => const VerifyCodeScreen()),
         );
       case RouteName.ONBOARDING:
         return MaterialPageRoute(
