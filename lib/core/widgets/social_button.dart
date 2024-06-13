@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../core/utils/colors.dart';
+import '../utils/colors.dart';
 
 class SocialButton extends StatelessWidget {
   final String logoImage;

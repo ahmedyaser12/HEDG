@@ -1,40 +1,35 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:hedg/core/utils/extintions.dart';
 import 'package:hedg/core/widgets/social_button.dart';
 
-import '../../../../core/routing/routs_names.dart';
 import '../../../../core/utils/app_string.dart';
 import '../../../../core/utils/colors.dart';
 import '../../../../core/utils/common_functions.dart';
 import '../../../../core/utils/styles.dart';
 import '../../../../core/widgets/app_buttons.dart';
+import '../../../../core/widgets/phone_number_text_field.dart';
 import '../../../../core/widgets/text_field.dart';
 
-class CardLoginContent extends StatelessWidget {
-  CardLoginContent({
+class CardSignUpContent extends StatelessWidget {
+  const CardSignUpContent({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return Column(children: [
+      const FormTextFieldItem(hint: AppStrings.signupFullNameHint),
+      heightSpace(15),
       const FormTextFieldItem(hint: AppStrings.loginEmailHint),
-      heightSpace(20),
+      heightSpace(15),
       const FormTextFieldItem(
         hint: AppStrings.loginPasswordHint,
         isPassword: true,
       ),
-      heightSpace(20),
-      Text(
-        AppStrings.loginForgotPassword,
-        style: TextStyles.font12Primary500weight,
-      ).onTap(() {
-        context.navigateTo(RouteName.FORGOT_PASSWORD);
-      }),
-      heightSpace(20),
+      heightSpace(15),
+      const PhoneNumberTextField(),
+      heightSpace(15),
       primaryButton(
-        title: AppStrings.loginButton,
+        title: AppStrings.signupButton,
         borderRadius: 12,
         verticalHeight: 15,
       ),
@@ -57,16 +52,13 @@ class CardLoginContent extends StatelessWidget {
         text: TextSpan(
           children: [
             TextSpan(
-                text: AppStrings.loginDontHaveAccount,
+                text: AppStrings.signupHaveAnAccount,
                 style: TextStyles.font14Primary500weight),
             TextSpan(
-                text: AppStrings.loginSignUp,
-                style: TextStyles.font14Primary500weight.copyWith(
-                    color: AppColors.secondary, fontWeight: FontWeight.bold),
-                recognizer: TapGestureRecognizer()
-                  ..onTap = () {
-                    context.navigateTo(RouteName.SIGNUP);
-                  })
+              text: AppStrings.signupLogin,
+              style: TextStyles.font14Primary500weight.copyWith(
+                  color: AppColors.secondary, fontWeight: FontWeight.bold),
+            )
           ],
         ),
       ),
