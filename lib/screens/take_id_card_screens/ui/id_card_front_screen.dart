@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hedg/core/utils/app_string.dart';
+import 'package:hedg/core/utils/extintions.dart';
+import 'package:hedg/core/widgets/app_buttons.dart';
 import 'package:hedg/core/widgets/build_card.dart';
 import 'package:hedg/core/widgets/custom_appBar.dart';
+import 'package:hedg/screens/take_id_card_screens/logic/id_card_cubit.dart';
+import 'package:hedg/screens/take_id_card_screens/ui/widget/id_front_card_content.dart';
 import 'package:hedg/screens/take_id_card_screens/ui/widget/stepper_widget.dart';
 
 import '../../../core/utils/colors.dart';
@@ -35,18 +40,49 @@ class IdCardFrontScreenState extends State<IdCardFrontScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const StepperWidget(),
-            heightSpace(30),
-            // Text(
-            //   AppStrings.addNationalIdFront,
-            //   style: TextStyles.font14SecondaryW700
-            //       .copyWith(color: AppColors.primary),
-            // ),
-            // heightSpace(15),
-            // const BuildCard(body: Column(
-            //   children: [
-            //     Text(''),
-            //   ],
-            // ))
+            Text(
+              AppStrings.idAddNationalIdFront,
+              style: TextStyles.font14SecondaryW700
+                  .copyWith(color: AppColors.primary),
+            ),
+            heightSpace(15),
+            BuildCard(
+              marginVertical: 10,
+              paddingVertical: 20,
+              shadowColor: AppColors.grey,
+              body: const IdFrontCardContent(),
+            ),
+            heightSpace(20),
+            Center(
+              child: RichText(
+                textAlign: TextAlign.center,
+                text: TextSpan(
+                  text: AppStrings.idWhatsappHelp.substring(0, 66),
+                  style: TextStyles.font13grey500weight
+                      .copyWith(fontSize: 10, fontWeight: FontWeight.w400),
+                  children: <TextSpan>[
+                    TextSpan(
+                      text: AppStrings.idWhatsappHelp.substring(66, 75),
+                      style: TextStyles.font13grey500weight.copyWith(
+                          color: AppColors.blackColor,
+                          fontSize: 10,
+                          fontWeight: FontWeight.w800),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            heightSpace(50),
+            primaryButton(
+              title: AppStrings.idSave,
+              borderRadius: 12,
+              verticalHeight: 15,
+              color: AppColors.primary.withOpacity(
+                .5,
+              ),
+            ).onTap(borderRadius: BorderRadius.circular(12), () {
+              context.read<IdCardCubit>().saveActiveStep(1);
+            })
           ],
         ),
       ),

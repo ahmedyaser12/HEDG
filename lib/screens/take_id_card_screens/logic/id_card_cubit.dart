@@ -7,6 +7,14 @@ part 'id_card_state.dart';
 
 class IdCardCubit extends Cubit<IdCardState> {
   IdCardCubit() : super(IdCardInitial());
+  int activeStep = 1;
+
+  void saveActiveStep(int index) {
+    activeStep = index;
+    print(activeStep);
+    emit(ActiveIndex());
+  }
+
   List<String> steps = [
     AppStrings.step1,
     AppStrings.step2,
@@ -16,4 +24,11 @@ class IdCardCubit extends Cubit<IdCardState> {
     AppStrings.step6
   ];
 
+
+  // void nextStep() {
+  //   if (activeStep < steps.length - 1) {
+  //     activeStep++;
+  //     emit(ActiveIndex());
+  //   }
+  // }
 }

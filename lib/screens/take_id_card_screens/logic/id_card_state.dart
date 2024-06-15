@@ -4,3 +4,4 @@ part of 'id_card_cubit.dart';
 sealed class IdCardState {}
 
 final class IdCardInitial extends IdCardState {}
+final class ActiveIndex extends IdCardState {}
