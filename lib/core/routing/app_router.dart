@@ -10,6 +10,8 @@ import '../../screens/face_id_login_screen/Ui/face_id_screen.dart';
 import '../../screens/forget_password_screen/Ui/forget_screen.dart';
 import '../../screens/onboarding_screen/Ui/on_boarding_screen.dart';
 import '../../screens/onboarding_screen/logic/onboarding_cubit.dart';
+import '../../screens/take_id_card_screens/logic/id_card_cubit.dart';
+import '../../screens/take_id_card_screens/ui/id_card_front_screen.dart';
 
 class AppRouter {
   static Route<dynamic>? generateRoute(RouteSettings settings) {
@@ -21,9 +23,15 @@ class AppRouter {
       case RouteName.SIGNUP: //home screen
         return MaterialPageRoute(
           builder: ((context) => const SignUpScreen()),
-        );case RouteName.VERIFYCODE: //home screen
+        );
+      case RouteName.VERIFYCODE: //home screen
         return MaterialPageRoute(
           builder: ((context) => const VerifyCodeScreen()),
+        );
+      case RouteName.IDCARD: //home screen
+        return MaterialPageRoute(
+          builder: ((context) => BlocProvider.value(
+              value: IdCardCubit(), child: const IdCardFrontScreen())),
         );
       case RouteName.ONBOARDING:
         return MaterialPageRoute(

@@ -76,7 +76,7 @@ class SearchAndButtonSearch extends StatelessWidget {
                 style: ButtonStyle(
                     minimumSize: const MaterialStatePropertyAll(Size(40, 40)),
                     backgroundColor:
-                        MaterialStatePropertyAll(AppColors.lightGery)),
+                        MaterialStatePropertyAll(AppColors.lightGrey)),
                 child: const Text(
                   'search',
                   style: TextStyle( fontSize: 15),

@@ -143,7 +143,7 @@ class OnboardingScreen extends StatelessWidget {
                                             curve: Curves.linear);
                                   },
                                   child: Text(AppStrings.back,
-                                      style: TextStyles.font16PrimaryMedium),
+                                      style: TextStyles.font16PrimaryW800),
                                 )
                               : Container(),
                           const OnboardingButton(),

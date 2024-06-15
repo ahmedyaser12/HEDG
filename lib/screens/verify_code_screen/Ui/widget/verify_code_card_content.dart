@@ -16,14 +16,15 @@ class VerifyCodeCardContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const VerifyTextField(isBorder:  false,),
+        const VerifyTextField(isBorder: false,),
         heightSpace(20),
         primaryButton(
           title: AppStrings.verificationContinueButton,
           borderRadius: 12,
           verticalHeight: 13,
         ).onTap(() {
-          context.navigateTo(RouteName.CREATENEWPASSWORD);
+          context.navigateTo(RouteName.IDCARD);
+          print('Continue');
         }),
       ],
     );
