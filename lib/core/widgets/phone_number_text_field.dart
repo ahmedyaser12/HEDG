@@ -16,7 +16,7 @@ class PhoneNumberTextField extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       decoration: BoxDecoration(
         border: Border.all(
-          color: AppColors.gery50,
+          color: AppColors.grey50,
         ),
         borderRadius: BorderRadius.circular(10.0),
       ),
@@ -35,7 +35,7 @@ class PhoneNumberTextField extends StatelessWidget {
                 '+20',
                 style: TextStyle(
                   fontSize: 16,
-                  color: AppColors.gery50,
+                  color: AppColors.grey50,
                 ),
               ),
             ],
@@ -44,7 +44,7 @@ class PhoneNumberTextField extends StatelessWidget {
           Container(
             width: 1,
             height: 50,
-            color: AppColors.gery50,
+            color: AppColors.grey50,
             margin: const EdgeInsets.symmetric(horizontal: 8.0),
           ),
           Expanded(

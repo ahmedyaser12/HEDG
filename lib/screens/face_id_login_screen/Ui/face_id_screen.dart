@@ -19,7 +19,7 @@ class FaceIdScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/images/face_id_logo.png',
+              'assets/images/logo_app_grey.png',
               width: 150,
             ),
             heightSpace(30),

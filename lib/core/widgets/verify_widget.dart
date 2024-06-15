@@ -42,7 +42,7 @@ Widget verifyCodeWidget(BuildContext context, bool isBorder) {
           enabledBorder: isBorder
               ? OutlineInputBorder(
                   borderRadius: BorderRadius.zero,
-                  borderSide: BorderSide(color: AppColors.gery50),
+                  borderSide: BorderSide(color: AppColors.grey50),
                 )
               :  UnderlineInputBorder(
                   borderSide: BorderSide(color: AppColors.lightBlueColor.withOpacity(.3),width: 1.5),

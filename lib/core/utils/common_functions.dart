@@ -48,7 +48,7 @@ void showAlertDialog(BuildContext context, String error) {
       ),
       content: Text(
         error,
-        style: TextStyles.font16PrimaryMedium,
+        style: TextStyles.font16PrimaryW800,
         textAlign: TextAlign.center,
       ),
       actions: [
@@ -58,7 +58,7 @@ void showAlertDialog(BuildContext context, String error) {
           },
           child: Text(
             'Got it',
-            style: TextStyles.font16PrimaryMedium,
+            style: TextStyles.font16PrimaryW800,
           ),
         ),
       ],
@@ -79,7 +79,7 @@ void showAcceptDialog(BuildContext context, String message) {
       ),
       content: Text(
         message,
-        style: TextStyles.font16PrimaryMedium,
+        style: TextStyles.font16PrimaryW800,
         textAlign: TextAlign.center,
       ),
       actions: [
@@ -89,7 +89,7 @@ void showAcceptDialog(BuildContext context, String message) {
           },
           child: Text(
             'OK',
-            style: TextStyles.font16PrimaryMedium,
+            style: TextStyles.font16PrimaryW800,
           ),
         ),
       ],

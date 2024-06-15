@@ -49,9 +49,23 @@ class AppStrings {
   static const String confirmButton = 'Confirm';
 
 
-  // Verification strings
+  // verification strings
   static const String verificationTitle = 'Verification';
   static const String verificationDescription = 'Enter the 4 digit numbers that were sent to\n01202349738';
   static const String verificationContinueButton = 'Continue';
   static const String verificationResendCode = 'Re-Send Code';
+
+  //id card String
+  static const String step1 = "ID Front";
+  static const String step2 = "ID Back";
+  static const String step3 = "Face";
+  static const String step4 = "Face right";
+  static const String step5 = "Face\nLeft";
+  static const String step6 = "Confirmation";
+  static const String addNationalIdFront = "Add National ID Front";
+  static const String idCardFront = "ID Card (Front)";
+  static const String photoInstruction = "Please take a photo to your ID Front,\nMake sure it's clear";
+  static const String save = "Save";
+  static const String whatsappHelp = "If you are facing any difficulties, please get in touch with us on Whatsapp";
+
 }

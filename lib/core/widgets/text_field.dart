@@ -53,7 +53,7 @@ class _FormTextFieldItemState extends State<FormTextFieldItem> {
               ? Container()
               : Text(
                   widget.name ?? '',
-                  style: TextStyles.font15BlackMedium(context),
+                  style: TextStyles.font15BlackW500(context),
                 ),
         ),
         if (widget.title != null) heightSpace(8),
@@ -88,7 +88,7 @@ class _FormTextFieldItemState extends State<FormTextFieldItem> {
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: AppColors.gery50,
+                    color: AppColors.grey50,
                     width: 1,
                   ),
                   borderRadius: BorderRadius.circular(12),

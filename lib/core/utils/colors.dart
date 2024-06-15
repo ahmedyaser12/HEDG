@@ -10,8 +10,11 @@ class AppColors {
   static Color blackColor = HexColor('#000000');
   static Color lightBlueColor = HexColor('#098AD3');
   static Color greyColor = HexColor('#6E838F');
-  static Color lightGery = HexColor('#FAFAFA');
-  static Color gery50 = HexColor('#E8E8E8');
+  static Color grey = HexColor('#1F1F1F1A');
+  static Color grey2 = HexColor('#757575');
+  static Color grey3 = HexColor('#F9F9F9');
+  static Color lightGrey = HexColor('#FAFAFA');
+  static Color grey50 = HexColor('#E8E8E8');
   static Color whiteColor = HexColor('#FFFFFF');
   static Color redColor = HexColor('#FF0000');
   static Color darkCardColor = HexColor('1E1E1E');
