@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 
 import '../utils/colors.dart';
 
-Widget primaryButton(
-    {required String title,
-    required double borderRadius,
-    double verticalHeight = 20}) {
+Widget primaryButton({
+  required String title,
+  Color? color,
+  required double borderRadius,
+  double verticalHeight = 20,
+}) {
   return Container(
     alignment: Alignment.center,
     padding: EdgeInsets.symmetric(vertical: verticalHeight),
     decoration: BoxDecoration(
-      color: AppColors.primary,
+      color: color ?? AppColors.primary,
       borderRadius: BorderRadius.circular(borderRadius),
     ),
     child: FittedBox(

@@ -4,10 +4,12 @@ import '../utils/colors.dart';
 
 class BuildCard extends StatelessWidget {
   final Widget body;
+  final Color? shadowColor;
   final double marginVertical;
   final double paddingVertical;
 
   const BuildCard({
+    this.shadowColor,
     super.key,
     required this.body,
     this.marginVertical = 50,
@@ -24,7 +26,7 @@ class BuildCard extends StatelessWidget {
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: AppColors.lightBlueColor.withOpacity(0.08),
+            color: shadowColor ?? AppColors.lightBlueColor.withOpacity(0.06666),
             spreadRadius: 2,
             blurRadius: 5,
             offset: const Offset(0, 3),

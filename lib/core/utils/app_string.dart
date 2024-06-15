@@ -48,10 +48,10 @@ class AppStrings {
   static const String rePasswordHint = 'Re-Password';
   static const String confirmButton = 'Confirm';
 
-
   // verification strings
   static const String verificationTitle = 'Verification';
-  static const String verificationDescription = 'Enter the 4 digit numbers that were sent to\n01202349738';
+  static const String verificationDescription =
+      'Enter the 4 digit numbers that were sent to\n01202349738';
   static const String verificationContinueButton = 'Continue';
   static const String verificationResendCode = 'Re-Send Code';
 
@@ -62,10 +62,12 @@ class AppStrings {
   static const String step4 = "Face right";
   static const String step5 = "Face\nLeft";
   static const String step6 = "Confirmation";
-  static const String addNationalIdFront = "Add National ID Front";
+  static const String idAddNationalIdFront = "Add National ID Front";
   static const String idCardFront = "ID Card (Front)";
-  static const String photoInstruction = "Please take a photo to your ID Front,\nMake sure it's clear";
-  static const String save = "Save";
-  static const String whatsappHelp = "If you are facing any difficulties, please get in touch with us on Whatsapp";
-
+  static const String idCardBack = "ID Card (Back)";
+  static const String idPhotoInstruction =
+      "Please take a photo to your ID Front,\nMake sure it's clear";
+  static const String idSave = "Save";
+  static const String idWhatsappHelp =
+      "If you are facing any difficulties, please get in touch\nwith us on Whatsapp";
 }
