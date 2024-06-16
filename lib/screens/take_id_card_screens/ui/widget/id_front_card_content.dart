@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../../../core/utils/app_string.dart';
 import '../../../../core/utils/common_functions.dart';
@@ -36,8 +39,48 @@ class IdFrontCardContent extends StatelessWidget {
               style: TextStyles.font13grey500weight.copyWith(fontSize: 11),
             ),
             heightSpace(60),
-            Image.asset(
-              'assets/images/camera-logo.png',
+            BlocBuilder<IdCardCubit, IdCardState>(
+              buildWhen: (previous, state) => state is IdCardImage,
+              builder: (context, state) {
+                final cubit = context.read<IdCardCubit>();
+                final isFirstStep = cubit.activeStep == 0;
+                Widget buildImage(String? path) {
+                  return GestureDetector(
+                    onTap: () async {
+                      final pickedImage = await ImagePicker()
+                          .pickImage(source: ImageSource.gallery);
+                      if (pickedImage != null) {
+                        isFirstStep
+                            ? cubit.uploadFrontImage(pickedImage)
+                            : cubit.uploadBackImage(pickedImage);
+                      }
+                    },
+                    child: path != null
+                        ? Image.file(
+                            File(path),
+                            height: 150,
+                            width: double.infinity,
+                            alignment: Alignment.center,
+                            fit: BoxFit.fill,
+                          )
+                        : Image.asset(
+                            'assets/images/camera-logo.png',
+                            height: 150,
+                            width: double.infinity,
+                            alignment: Alignment.center,
+                            fit: BoxFit.fill,
+                          ),
+                  );
+                }
+
+                if (state is IdCardImage) {
+                  return isFirstStep
+                      ? buildImage(cubit.frontImage?.path)
+                      : buildImage(cubit.backImage?.path);
+                } else {
+                  return buildImage(null);
+                }
+              },
             ),
             heightSpace(60),
           ],

@@ -21,8 +21,6 @@ class IdCardFrontScreen extends StatefulWidget {
 }
 
 class IdCardFrontScreenState extends State<IdCardFrontScreen> {
-  int activeStep = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,16 +71,28 @@ class IdCardFrontScreenState extends State<IdCardFrontScreen> {
               ),
             ),
             heightSpace(50),
-            primaryButton(
-              title: AppStrings.idSave,
-              borderRadius: 12,
-              verticalHeight: 15,
-              color: AppColors.primary.withOpacity(
-                .5,
-              ),
-            ).onTap(borderRadius: BorderRadius.circular(12), () {
-              context.read<IdCardCubit>().saveActiveStep(1);
-            })
+            BlocBuilder<IdCardCubit, IdCardState>(
+              builder: (context, state) {
+                return primaryButton(
+                  title: AppStrings.idSave,
+                  borderRadius: 12,
+                  verticalHeight: 15,
+                  color: AppColors.primary.withOpacity(
+                    context.read<IdCardCubit>().activeStep == 0
+                        ? context.read<IdCardCubit>().frontImage != null
+                            ? 1
+                            : 0.5
+                        : context.read<IdCardCubit>().backImage != null
+                            ? 1
+                            : 0.5,
+                  ),
+                ).onTap(borderRadius: BorderRadius.circular(12), () {
+                  context.read<IdCardCubit>().frontImage != null
+                      ? context.read<IdCardCubit>().nextStep()
+                      : null;
+                });
+              },
+            )
           ],
         ),
       ),

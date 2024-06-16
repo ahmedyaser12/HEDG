@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:camera/camera.dart';
 import 'package:meta/meta.dart';
 
 import '../../../core/utils/app_string.dart';
@@ -7,9 +8,14 @@ part 'id_card_state.dart';
 
 class IdCardCubit extends Cubit<IdCardState> {
   IdCardCubit() : super(IdCardInitial());
-  int activeStep = 1;
+  int activeStep = 0;
+  XFile? frontImage;
+  XFile? backImage;
 
   void saveActiveStep(int index) {
+    if (activeStep <= index) {
+      return;
+    }
     activeStep = index;
     print(activeStep);
     emit(ActiveIndex());
@@ -24,11 +30,20 @@ class IdCardCubit extends Cubit<IdCardState> {
     AppStrings.step6
   ];
 
+  uploadFrontImage(XFile uploadImage) {
+    frontImage = uploadImage;
+    emit(IdCardImage(frontImage!));
+  }
 
-  // void nextStep() {
-  //   if (activeStep < steps.length - 1) {
-  //     activeStep++;
-  //     emit(ActiveIndex());
-  //   }
-  // }
+  uploadBackImage(XFile uploadImage) {
+    backImage = uploadImage;
+    emit(IdCardImage(backImage!));
+  }
+
+  void nextStep() {
+    if (activeStep < steps.length - 1) {
+      activeStep++;
+      emit(ActiveIndex());
+    }
+  }
 }
