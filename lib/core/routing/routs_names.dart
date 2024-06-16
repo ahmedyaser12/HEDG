@@ -8,5 +8,6 @@ class RouteName {
   static const String VERIFYCODE = '/verify_code';
   static const String HOME = '/home';
   static const String IDCARD = '/id_card';
+  static const String NATIONALCARD = '/national_card_id';
 
 }

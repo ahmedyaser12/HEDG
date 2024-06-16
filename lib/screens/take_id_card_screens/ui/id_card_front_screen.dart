@@ -9,6 +9,7 @@ import 'package:hedg/screens/take_id_card_screens/logic/id_card_cubit.dart';
 import 'package:hedg/screens/take_id_card_screens/ui/widget/id_front_card_content.dart';
 import 'package:hedg/screens/take_id_card_screens/ui/widget/stepper_widget.dart';
 
+import '../../../core/routing/routs_names.dart';
 import '../../../core/utils/colors.dart';
 import '../../../core/utils/common_functions.dart';
 import '../../../core/utils/styles.dart';
@@ -87,9 +88,13 @@ class IdCardFrontScreenState extends State<IdCardFrontScreen> {
                             : 0.5,
                   ),
                 ).onTap(borderRadius: BorderRadius.circular(12), () {
-                  context.read<IdCardCubit>().frontImage != null
-                      ? context.read<IdCardCubit>().nextStep()
-                      : null;
+                  context.read<IdCardCubit>().activeStep == 0
+                      ? context.read<IdCardCubit>().frontImage != null
+                          ? context.read<IdCardCubit>().nextStep()
+                          : null
+                      : context.read<IdCardCubit>().backImage != null
+                          ? context.navigateTo(RouteName.NATIONALCARD)
+                          : null;
                 });
               },
             )

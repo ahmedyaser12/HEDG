@@ -32,11 +32,13 @@ class IdCardCubit extends Cubit<IdCardState> {
 
   uploadFrontImage(XFile uploadImage) {
     frontImage = uploadImage;
+    print(frontImage!.path);
     emit(IdCardImage(frontImage!));
   }
 
   uploadBackImage(XFile uploadImage) {
     backImage = uploadImage;
+    print(backImage!.path);
     emit(IdCardImage(backImage!));
   }
 

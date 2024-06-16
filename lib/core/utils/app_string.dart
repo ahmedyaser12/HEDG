@@ -70,4 +70,5 @@ class AppStrings {
   static const String idSave = "Save";
   static const String idWhatsappHelp =
       "If you are facing any difficulties, please get in touch\nwith us on Whatsapp";
+  static const String addNationalId = "Add National Id";
 }
