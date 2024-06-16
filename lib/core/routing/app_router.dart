@@ -12,6 +12,8 @@ import '../../screens/onboarding_screen/Ui/on_boarding_screen.dart';
 import '../../screens/onboarding_screen/logic/onboarding_cubit.dart';
 import '../../screens/take_id_card_screens/logic/id_card_cubit.dart';
 import '../../screens/take_id_card_screens/ui/id_card_front_screen.dart';
+import '../../screens/take_id_card_screens/ui/show_national_card_id.dart';
+import '../services/services_locator.dart';
 
 class AppRouter {
   static Route<dynamic>? generateRoute(RouteSettings settings) {
@@ -31,7 +33,16 @@ class AppRouter {
       case RouteName.IDCARD: //home screen
         return MaterialPageRoute(
           builder: ((context) => BlocProvider.value(
-              value: IdCardCubit(), child: const IdCardFrontScreen())),
+                value: locator<IdCardCubit>(),
+                child: const IdCardFrontScreen(),
+              )),
+        );
+      case RouteName.NATIONALCARD: //home screen
+        return MaterialPageRoute(
+          builder: ((context) => BlocProvider.value(
+                value: locator<IdCardCubit>(),
+                child: const NationalCardId(),
+              )),
         );
       case RouteName.ONBOARDING:
         return MaterialPageRoute(
