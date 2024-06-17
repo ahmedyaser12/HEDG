@@ -35,6 +35,7 @@ class CustomAppBar extends StatelessWidget {
 
 customAppBarr({
   required context,
+  final Widget? centerWidget,
   final Widget? leading,
   final String? title,
   final IconThemeData? iconThemeData,
@@ -45,10 +46,12 @@ customAppBarr({
     centerTitle: true,
     leading: leading,
     iconTheme: iconThemeData,
-    title: Text(
-      title ?? '',
-      style: TextStyles.font20BlackBold(context),
-    ),
+    title: title == null
+        ? centerWidget
+        : Text(
+            title ?? '',
+            style: TextStyles.font20BlackBold(context),
+          ),
     backgroundColor: color,
     actions: action,
   );

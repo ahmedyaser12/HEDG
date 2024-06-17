@@ -6,7 +6,7 @@ import 'package:hedg/core/utils/extintions.dart';
 import 'package:hedg/core/utils/styles.dart';
 import 'package:hedg/core/widgets/build_card.dart';
 import 'package:hedg/core/widgets/custom_appBar.dart';
-import 'package:hedg/screens/forget_password_screen/Ui/widget/card_content.dart';
+import 'package:hedg/screens/forget_password_screen/Ui/widget/forget_card_content.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
   const ForgotPasswordScreen({super.key});
@@ -45,7 +45,7 @@ class ForgotPasswordScreen extends StatelessWidget {
             const BuildCard(
               marginVertical: 25,
               paddingVertical: 40,
-              body: CardContent(),
+              body: ForgetCardContent(),
             ),
             Text(
               AppStrings.forgetPasswordResendTimer,

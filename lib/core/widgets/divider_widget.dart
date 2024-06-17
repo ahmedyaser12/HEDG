@@ -13,7 +13,7 @@ class DividerWidget extends StatelessWidget {
       children: [
         Expanded(
           child: Divider(
-            color: AppColors.gery50,
+            color: AppColors.grey50,
             thickness: 1,
           ),
         ),
@@ -26,7 +26,7 @@ class DividerWidget extends StatelessWidget {
         // ),
         Expanded(
           child: Divider(
-            color: AppColors.gery50,
+            color: AppColors.grey50,
             thickness: 1,
           ),
         ),

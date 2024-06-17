@@ -37,7 +37,7 @@ class LoginScreen extends StatelessWidget {
                         style: TextStyles.font20BlackBold(context)
                             .copyWith(color: AppColors.whiteColor),
                       ),
-                      const BuildCard(
+                       BuildCard(
                         body: CardLoginContent(),
                       ),
                     ]),

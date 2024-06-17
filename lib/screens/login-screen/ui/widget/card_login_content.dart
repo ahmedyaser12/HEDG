@@ -1,6 +1,7 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:hedg/core/utils/extintions.dart';
-import 'package:hedg/screens/login-screen/ui/widget/social_button.dart';
+import 'package:hedg/core/widgets/social_button.dart';
 
 import '../../../../core/routing/routs_names.dart';
 import '../../../../core/utils/app_string.dart';
@@ -11,7 +12,7 @@ import '../../../../core/widgets/app_buttons.dart';
 import '../../../../core/widgets/text_field.dart';
 
 class CardLoginContent extends StatelessWidget {
-  const CardLoginContent({
+  CardLoginContent({
     super.key,
   });
 
@@ -19,7 +20,11 @@ class CardLoginContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(children: [
       const FormTextFieldItem(hint: AppStrings.loginEmailHint),
-      const FormTextFieldItem(hint: AppStrings.loginPasswordHint),
+      heightSpace(20),
+      const FormTextFieldItem(
+        hint: AppStrings.loginPasswordHint,
+        isPassword: true,
+      ),
       heightSpace(20),
       Text(
         AppStrings.loginForgotPassword,
@@ -55,10 +60,13 @@ class CardLoginContent extends StatelessWidget {
                 text: AppStrings.loginDontHaveAccount,
                 style: TextStyles.font14Primary500weight),
             TextSpan(
-              text: AppStrings.loginSignUp,
-              style: TextStyles.font14Primary500weight.copyWith(
-                  color: AppColors.secondary, fontWeight: FontWeight.bold),
-            )
+                text: AppStrings.loginSignUp,
+                style: TextStyles.font14Primary500weight.copyWith(
+                    color: AppColors.secondary, fontWeight: FontWeight.bold),
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    context.navigateTo(RouteName.SIGNUP);
+                  })
           ],
         ),
       ),

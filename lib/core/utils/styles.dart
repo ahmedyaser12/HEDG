@@ -38,13 +38,13 @@ class TextStyles {
     fontWeight: FontWeight.w500,
     color: AppColors.primary,
   );
-  static TextStyle font13grey500weight = const TextStyle(
+  static TextStyle font13grey500weight =  TextStyle(
     fontSize: 13,
     fontWeight: FontWeight.w500,
-    color: Color.fromRGBO(255, 255, 255, 0.6),
+    color: AppColors.grey2,
   );
 
-  static TextStyle font15BlackMedium(BuildContext context) {
+  static TextStyle font15BlackW500(BuildContext context) {
     return TextStyle(
       fontSize: 15,
       fontWeight: FontWeight.w500,
@@ -64,7 +64,7 @@ class TextStyles {
     );
   }
 
-  static TextStyle font16PrimaryMedium = TextStyle(
+  static TextStyle font16PrimaryW800 = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w800,
     color: AppColors.primary,
